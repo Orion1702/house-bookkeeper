@@ -14,7 +14,9 @@ export default class DataService {
             //Remove additional text and extract only JSON:
             const jsonData = JSON.parse(rep.substring(47).slice(0, -2));
             console.log(dataConvert(jsonData))
+            console.log(dataConvert(jsonData).length)
             return(callback(dataConvert(jsonData)))
+            // return(dataConvert(jsonData))
         });
     }
 }

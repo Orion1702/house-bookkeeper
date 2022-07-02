@@ -43,7 +43,6 @@ export const converTableJson = (jsonData, outputClassname) => {
         })
         data.push(row);
     })
-    
     console.log(data)
 }
 
@@ -65,6 +64,5 @@ export const dataConvert = (jsonData) => {
         })
         data.push(row);
     })
-
     return data;
 }

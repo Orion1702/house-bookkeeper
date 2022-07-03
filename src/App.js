@@ -8,6 +8,8 @@ import { usePosts } from './hooks/usePosts';
 import DataFilter from './components/DataFilter';
 import { dataConvert } from './hooks/converTableJson';
 import { testData } from './API/testData';
+import Header from './components/Header';
+import { Container } from '@mui/material';
 
 // import Container from '@material-ui/core/Container';
 
@@ -33,6 +35,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       {dataError &&
         <h1>Ошибка: ${dataError}</h1>
       }
@@ -40,18 +43,18 @@ function App() {
       {isDataLoading &&
         <div style={{display: 'flex', justifyContent: 'center', marginTop: 50}}><Loader /></div>
       }
-      {/* <Container maxWidth="sm"> */}
-        {/* <DataFilter 
+      <Container sx={{mt: 2}}>
+        <DataFilter 
           filter={filter}
           setFilter={setFilter}
-        /> */}
+        />
         <div>
         <h1>total mount</h1>
         <DataList posts={sortedAndSearchedPosts}/>
         
           {/* {data.filter(0,2).map(e => e.Name)} */}
         </div>
-        {/* </Container> */}
+        </Container>
     </div>
   );
 }

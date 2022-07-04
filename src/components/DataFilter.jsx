@@ -1,10 +1,25 @@
-import React from "react";
+import { DatePicker } from "@mui/lab";
+import { Stack, TextField } from "@mui/material";
+import React, { Fragment, useState } from "react";
 import MyInput from "./UI/input/MyInput";
 import MySelect from "./UI/select/MySelect";
 
 const DataFilter = ({filter, setFilter}) => {
+    const [dataSelect, setDataSelect] = useState()
+    console.log('dataSelect')
+    console.log(dataSelect)
     return(
         <div>
+            <Stack>
+                <DatePicker 
+                    label='Date Picker' 
+                    renderInput={(params) => <TextField {...params} />} 
+                    value={dataSelect}
+                    onChange={(newValue) => setDataSelect(newValue)}
+                />
+                
+            </Stack>
+
             <MyInput
                 value={filter.query}
                 onChange={e => setFilter({...filter, query: e.target.value})}

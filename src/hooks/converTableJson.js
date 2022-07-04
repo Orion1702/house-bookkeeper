@@ -46,9 +46,15 @@ export const converTableJson = (jsonData, outputClassname) => {
     console.log(data)
 }
 
+
+
+
+
+
 export const dataConvert = (jsonData) => {
+
     const colz = [];
-    const data = []  
+    const data = [];
     //Extract column labels
     jsonData.table.cols.forEach((heading) => {
         if (heading.label) {
@@ -61,6 +67,13 @@ export const dataConvert = (jsonData) => {
         const row = {};
         colz.forEach((ele, ind) => {
             row[ele] = (rowData.c[ind] != null) ? rowData.c[ind].v : '';
+            /*
+            if(ele == 'date') {
+                row[ele] = (rowData.c[ind] != null) ? ExcelDateToJSDate(rowData.c[ind].v) : '';
+            } else {
+                row[ele] = (rowData.c[ind] != null) ? rowData.c[ind].v : '';
+            }
+            */
         })
         data.push(row);
     })

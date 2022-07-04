@@ -1,3 +1,4 @@
+import { ConverDatatoReactFormat } from "../hooks/ConverDatatoReactFormat";
 import { dataConvert } from "../hooks/converTableJson";
 
 export default class DataService {
@@ -15,7 +16,7 @@ export default class DataService {
             const jsonData = JSON.parse(rep.substring(47).slice(0, -2));
             console.log(dataConvert(jsonData))
             console.log(dataConvert(jsonData).length)
-            return(callback(dataConvert(jsonData)))
+            return(callback(ConverDatatoReactFormat(dataConvert(jsonData))))
             // return(dataConvert(jsonData))
         });
     }

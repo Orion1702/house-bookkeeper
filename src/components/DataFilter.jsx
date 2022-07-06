@@ -5,19 +5,28 @@ import MyInput from "./UI/input/MyInput";
 import MySelect from "./UI/select/MySelect";
 
 const DataFilter = ({filter, setFilter}) => {
-    const [dataSelect, setDataSelect] = useState()
-    console.log('dataSelect')
-    console.log(dataSelect)
+    // const [dateFrom, setDateFrom] = useState()
+    // const [dateTo, setDatrTo] = useState()
+    // const handleChangeDateFrom = (e) => {
+
+    // }
+
     return(
         <div>
-            <Stack>
+            <Stack direction="row" spacing={2}>
                 <DatePicker 
-                    label='Date Picker' 
+                    label='Date From' 
                     renderInput={(params) => <TextField {...params} />} 
-                    value={dataSelect}
-                    onChange={(newValue) => setDataSelect(newValue)}
+                    value={filter.dateFrom}
+                    onChange={(newValue) => setFilter({...filter, dateFrom: newValue})}
+                    // onChange={(newValue) => setDateFrom(newValue)}
                 />
-                
+                <DatePicker 
+                    label='Date To' 
+                    renderInput={(params) => <TextField {...params} />} 
+                    value={filter.dateTo}
+                    onChange={(newValue) => setFilter({...filter, dateTo: newValue})}
+                />
             </Stack>
 
             <MyInput

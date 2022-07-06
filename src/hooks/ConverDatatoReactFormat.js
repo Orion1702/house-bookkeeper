@@ -1,10 +1,16 @@
 const ExcelDateToJSDate = (dateExcel) => {
-    let result = dateExcel ? dateExcel
+    let result = '';
+    if (dateExcel) {
+        result = dateExcel
         .replace('Date(','')
         .replace(')','')
-        // .split(',')
-        // .map(elem=> parseInt(elem, 10))
-        : '';
+        .split(',')
+        .map(elem=> parseInt(elem, 10));
+        result[1] += 1;
+        result = result.toString();
+        // console.log(`dateExcel = ${dateExcel} ||| result = ${result} ${typeof(result)}`)
+    }
+
     return result;
 }
 

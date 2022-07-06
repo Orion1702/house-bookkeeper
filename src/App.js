@@ -17,8 +17,8 @@ import { Container } from '@mui/material';
 function App() {
   const [data, setData] = useState([]);
   const [dataTest, setDataTest] = useState(testData);
-  const [filter, setFilter] = useState( {sort: '', query: ''})
-  const sortedAndSearchedPosts = usePosts(data, filter.sort, filter.query)
+  const [filter, setFilter] = useState( {sort: '', query: '', dateFrom: '2022,7,3', dateTo: '2022,7,4'})
+  const sortedAndSearchedPosts = usePosts(data, filter.sort, filter.query, filter.dateFrom, filter.dateTo)
   const [fetchData, isDataLoading, dataError] = useFetching( async () => {
     await DataService.getFromTable(setData)
   });

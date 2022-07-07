@@ -19,10 +19,10 @@ export const usePostsByDate = (data, dateFrom, dateTo) => {
 	const sortedData = useMemo(() => {
 		// if(dateFrom && dateTo) {
 			return [...data].filter((a) => {
-				console.log(`a.date -> ${new Date(a.date)} : dateStart = ${dateStart} dateEnd = ${dateEnd}`)
+				// console.log(`a.date -> ${new Date(a.date)} : dateStart = ${dateStart} dateEnd = ${dateEnd}`)
 				const dataDate = new Date(a.date)
 				return (dataDate >= dateStart && dataDate <= dateEnd);
-			 })
+			})
 		// }
 	}, [data, dateFrom, dateTo])
 	console.log('sortedData')

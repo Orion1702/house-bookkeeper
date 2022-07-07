@@ -1,19 +1,23 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-export const 
-useFetching = (callback) => {
-    const [isLoading, setIsLoading] = useState(false);
+export const useFetching = (callback) => {
+    // const [isLoading, setIsLoading] = useState(false);
+    const dispatch = useDispatch()
+    const isLoading = useSelector(state => state.isLoading);
     const [error, setError] = useState('')
 
     const fetching = async (...args) => {
         try {
-            setIsLoading(true)
+            // setIsLoading(true)
+            dispatch({type: 'UPDATE_ISLOADING', payload: true})
             await callback(...args)
         } catch(e) {
             setError(e.message);
         } finally {
             setTimeout( () => {
-                setIsLoading(false)
+                dispatch({type: 'UPDATE_ISLOADING', payload: false})
+                // setIsLoading(false)
             }, 1450)
         }
     }

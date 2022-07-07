@@ -11,12 +11,18 @@ import { testData } from './API/testData';
 import Header from './components/Header';
 import { Container } from '@mui/material';
 
+import { useDispatch, useSelector } from 'react-redux';
+
 // import Container from '@material-ui/core/Container';
 
 
 function App() {
+  const dispatch = useDispatch();
+  const reduxData = useSelector(state => state.data);
+  const isLoading = useSelector(state => state.isLoading);
+
   const [data, setData] = useState([]);
-  const [dataTest, setDataTest] = useState(testData);
+  // const [dataTest, setDataTest] = useState(testData);
   const [filter, setFilter] = useState( {sort: '', query: '', dateFrom: '2022,7,3', dateTo: '2022,7,4'})
   const sortedAndSearchedPosts = usePosts(data, filter.sort, filter.query, filter.dateFrom, filter.dateTo)
   const [fetchData, isDataLoading, dataError] = useFetching( async () => {
@@ -28,10 +34,14 @@ function App() {
     fetchData()
   }, []);
 
-  const dataList = () => {
-    console.log(data.slice(0,2))
-    return data.slice(0,2)
-  }
+  useEffect(() => {
+    dispatch({type: 'UPDATE_FILTEREDDATA', payload: sortedAndSearchedPosts})
+  }, [sortedAndSearchedPosts]);
+
+  // const dataList = () => {
+  //   console.log(data.slice(0,2))
+  //   return data.slice(0,2)
+  // }
 
   return (
     <div className="App">
@@ -40,20 +50,17 @@ function App() {
         <h1>Ошибка: ${dataError}</h1>
       }
 
-      {isDataLoading &&
-        <div style={{display: 'flex', justifyContent: 'center', marginTop: 50}}><Loader /></div>
-      }
+      
       <Container sx={{mt: 2}}>
         <DataFilter 
           filter={filter}
           setFilter={setFilter}
         />
-        <div>
-        <h1>total mount</h1>
-        <DataList posts={sortedAndSearchedPosts}/>
-        
-          {/* {data.filter(0,2).map(e => e.Name)} */}
-        </div>
+        {isLoading ?
+          <div style={{display: 'flex', justifyContent: 'center', marginTop: 50}}><Loader /></div>
+          :
+          <DataList posts={sortedAndSearchedPosts}/>
+        }
         </Container>
     </div>
   );

@@ -19,7 +19,6 @@ const DataFilter = ({filter, setFilter}) => {
                     renderInput={(params) => <TextField {...params} />} 
                     value={filter.dateFrom}
                     onChange={(newValue) => setFilter({...filter, dateFrom: newValue})}
-                    // onChange={(newValue) => setDateFrom(newValue)}
                 />
                 <DatePicker 
                     label='Date To' 
@@ -34,7 +33,7 @@ const DataFilter = ({filter, setFilter}) => {
                 onChange={e => setFilter({...filter, query: e.target.value})}
                 placeholder="Поиск..."
             />
-            <MySelect
+            {/* <MySelect
                 value={filter.sort}
                 onChange={selectedSort => setFilter({...filter, sort: selectedSort})}
                 defaultValue="Сортировка"
@@ -42,7 +41,7 @@ const DataFilter = ({filter, setFilter}) => {
                     {value: 'title', name: 'По названию'},
                     {value: 'body', name: 'По описанию'},
                 ]}
-            />
+            /> */}
         </div>
     )
 }

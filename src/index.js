@@ -7,6 +7,8 @@ import { LocalizationProvider } from '@mui/lab';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import { createStore } from 'redux'
 import { Provider } from 'react-redux';
+import { defaultState } from './redux/defaultState';
+import { reducer } from './redux/reducer';
 
 const theme = createTheme({
   palette: {
@@ -16,28 +18,6 @@ const theme = createTheme({
   },
 });
 
-
-const defaultState = { 
-  data: 0, 
-  isLoading: false,
-  filteredData: [],
-}
-
-const reducer = (state = defaultState, action) => {
-  switch (action.type) {
-    case 'UPDATE_DATA':
-      return {...state, data: action.payload}
-      
-    case 'UPDATE_ISLOADING':
-      return {...state, isLoading: action.payload}
-
-    case 'UPDATE_FILTEREDDATA':
-      return {...state, filteredData: action.payload}
-
-    default:
-      return state;
-  }
-}
 
 const store = createStore(reducer)
 

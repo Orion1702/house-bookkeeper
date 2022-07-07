@@ -12,14 +12,13 @@ const DayReceipt = ({day, dayData}) => {
     return (
         <div className="DayReceipt">
             <div className="DayReceipt__title">
-                <Typography variant="h5" component="h3">{day}</Typography>
-                <Typography variant="h5" component="h3">{totalArrayPrice(dayData)}</Typography>
+                <Typography variant="h5" component="subtitle2">{day}</Typography>
+                <Typography variant="h5" component="subtitle2">{totalArrayPrice(dayData)}</Typography>
             </div>
-           <div>
-                {shopArray.map((shop, i) => 
-                    <ShopReceipt key={shop + i} shopName={shop} day={day} checkData={dayData.filter(el => el.shop == shop)} />
-                )}
-           </div>
+            
+            {shopArray.map((shop, i) => 
+                <ShopReceipt key={shop + i} shopName={shop} day={day} checkData={dayData.filter(el => el.shop == shop)} />
+            )}
         </div>
     )
 }

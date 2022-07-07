@@ -20,10 +20,13 @@ function App() {
   const dispatch = useDispatch();
   const reduxData = useSelector(state => state.data);
   const isLoading = useSelector(state => state.isLoading);
+  const defFilterDateStart = useSelector(state => state.filteredData.dateFrom);
+  const defFilterDateEnd = useSelector(state => state.filteredData.dateTo);
 
   const [data, setData] = useState([]);
   // const [dataTest, setDataTest] = useState(testData);
-  const [filter, setFilter] = useState( {sort: '', query: '', dateFrom: '2022,7,3', dateTo: '2022,7,4'})
+  // const [filter, setFilter] = useState( {sort: '', query: '', dateFrom: '2022,7,3', dateTo: '2022,7,4'})
+  const [filter, setFilter] = useState( {sort: '', query: '', dateFrom: defFilterDateStart, dateTo: defFilterDateEnd})
   const sortedAndSearchedPosts = usePosts(data, filter.sort, filter.query, filter.dateFrom, filter.dateTo)
   const [fetchData, isDataLoading, dataError] = useFetching( async () => {
     await DataService.getFromTable(setData)
@@ -49,7 +52,6 @@ function App() {
       {dataError &&
         <h1>Ошибка: ${dataError}</h1>
       }
-
       
       <Container sx={{mt: 2}} maxWidth="md">
         <DataFilter 

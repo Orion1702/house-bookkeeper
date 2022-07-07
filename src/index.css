@@ -23,6 +23,7 @@ code {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0.2em 0.6em;
 }
 
 .ShopReceipt {}
@@ -30,4 +31,5 @@ code {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
 }

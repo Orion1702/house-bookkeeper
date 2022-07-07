@@ -9,7 +9,7 @@ const Header = () => {
     return(
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
-                <Container>
+                <Container maxWidth="md">
                     
                     <Stack
                         direction="row"

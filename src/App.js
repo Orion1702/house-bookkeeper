@@ -51,7 +51,7 @@ function App() {
       }
 
       
-      <Container sx={{mt: 2}}>
+      <Container sx={{mt: 2}} maxWidth="md">
         <DataFilter 
           filter={filter}
           setFilter={setFilter}

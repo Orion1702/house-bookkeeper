@@ -1,5 +1,5 @@
 import { DatePicker } from "@mui/lab";
-import { Stack, TextField } from "@mui/material";
+import { Box, Stack, TextField } from "@mui/material";
 import React, { Fragment, useState } from "react";
 import MyInput from "./UI/input/MyInput";
 import MySelect from "./UI/select/MySelect";
@@ -12,7 +12,8 @@ const DataFilter = ({filter, setFilter}) => {
     // }
 
     return(
-        <div>
+        <Box sm={{p: 2, mb: 2,}}>
+
             <Stack direction="row" spacing={2}>
                 <DatePicker 
                     label='Date From' 
@@ -28,12 +29,13 @@ const DataFilter = ({filter, setFilter}) => {
                 />
             </Stack>
 
+             {/*
             <MyInput
                 value={filter.query}
                 onChange={e => setFilter({...filter, query: e.target.value})}
                 placeholder="Поиск..."
             />
-            {/* <MySelect
+            <MySelect
                 value={filter.sort}
                 onChange={selectedSort => setFilter({...filter, sort: selectedSort})}
                 defaultValue="Сортировка"
@@ -42,7 +44,7 @@ const DataFilter = ({filter, setFilter}) => {
                     {value: 'body', name: 'По описанию'},
                 ]}
             /> */}
-        </div>
+        </Box>
     )
 }
 

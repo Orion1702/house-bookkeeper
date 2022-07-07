@@ -1,5 +1,7 @@
+import { Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { totalArrayPrice } from "../hooks/shortFunction";
 import ShopReceipt from "./ShopReceipt";
 
 const DayReceipt = ({day, dayData}) => {
@@ -8,10 +10,10 @@ const DayReceipt = ({day, dayData}) => {
     const shopArray = [...new Set(dayData.map(el => el.shop))]
     
     return (
-        <div cla>
-            <div className="day__title">
-                <div>{day}</div>
-                <div>{day}</div>
+        <div className="DayReceipt">
+            <div className="DayReceipt__title">
+                <Typography variant="h5" component="h3">{day}</Typography>
+                <Typography variant="h5" component="h3">{totalArrayPrice(dayData)}</Typography>
             </div>
            <div>
                 {shopArray.map((shop, i) => 

@@ -6,6 +6,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import { totalArrayPrice } from "../hooks/shortFunction";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -42,7 +43,7 @@ function TabPanel(props) {
 
 
 const DataList = ({posts}) => {
-    const totalPriceCount = posts.reduce((accum, el) => { return accum + el.finalPrice;}, 0).toFixed(2)
+    const totalPriceCount = totalArrayPrice(posts);
     const daysArray = [...new Set(posts.map(el => el.date))];
     console.log(daysArray.sort((a, b) => a.localeCompare(b)));
 
@@ -54,11 +55,15 @@ const DataList = ({posts}) => {
     
     return (
         <div>
-            <h1>Total mount {totalPriceCount} </h1>
-            <hr />
+            <Box
+                sx={{ p: 2, mb: 2, flexGrow: 1, /* bgcolor: 'background.paper',*/  display: 'flex', justifyContent: 'space-between' }}
+            >
+                <Typography variant="h4" component="h1">Total mount</Typography>
+                <Typography variant="h4" component="h1">{totalPriceCount}</Typography>
+            </Box>
 
             <Box
-                sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', height: 224 }}
+                sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex'}}
                 >
                 <Tabs
                     orientation="vertical"
@@ -66,11 +71,10 @@ const DataList = ({posts}) => {
                     value={value}
                     onChange={handleChange}
                     aria-label="Vertical tabs example"
-                    sx={{ borderRight: 1, borderColor: 'divider' }}
+                    sx={{ borderRight: 1, borderColor: 'divider',  maxHeight: 480, minWidth: 90 }}
                 >
                     {daysArray.map((day, dayIndex) =>
                         <Tab label={day} {...a11yProps(dayIndex)} />
-                        
                     )}
                 </Tabs>
 

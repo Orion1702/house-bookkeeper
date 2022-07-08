@@ -20,6 +20,7 @@ function App() {
   const dispatch = useDispatch();
   const reduxData = useSelector(state => state.data);
   const isLoading = useSelector(state => state.isLoading);
+
   const defFilterDateStart = useSelector(state => state.filteredData.dateFrom);
   const defFilterDateEnd = useSelector(state => state.filteredData.dateTo);
 
@@ -33,8 +34,8 @@ function App() {
   });
 
   useEffect(() => {
-    console.log('useEffect');
-    fetchData()
+    // console.log('useEffect');
+    fetchData();
   }, []);
 
   useEffect(() => {

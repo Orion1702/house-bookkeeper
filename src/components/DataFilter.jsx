@@ -1,6 +1,7 @@
 import { DatePicker } from "@mui/lab";
-import { Box, Stack, TextField } from "@mui/material";
 import React, { Fragment, useState } from "react";
+import {Box, TextField, InputAdornment, Stack} from '@mui/material/';
+import SearchIcon from '@mui/icons-material/Search';
 import MyInput from "./UI/input/MyInput";
 import MySelect from "./UI/select/MySelect";
 
@@ -26,6 +27,21 @@ const DataFilter = ({filter, setFilter}) => {
                     renderInput={(params) => <TextField {...params} />} 
                     value={filter.dateTo}
                     onChange={(newValue) => setFilter({...filter, dateTo: newValue})}
+                />
+                <TextField 
+                    variant="standard"
+                    // size="small"
+                    label="Search field"
+                    color="white"
+                    sx={{mb: 1, width: '40%',}}
+                    type="search"
+                    InputProps={{
+                        endAdornment: (
+                            <InputAdornment position="end">
+                                <SearchIcon />
+                            </InputAdornment>
+                        ),
+                    }}
                 />
             </Stack>
 

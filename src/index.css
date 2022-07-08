@@ -16,6 +16,12 @@ code {
 
 #root{}
 
+.TabPanel_of_DayReceipt {
+  /* padding-top: 0; */
+}
+.TabPanel_of_DayReceipt .MuiBox-root {
+  /* padding-top: 0; */
+}
 
 .DayReceipt {}
 
@@ -24,6 +30,7 @@ code {
   align-items: center;
   justify-content: space-between;
   padding: 0.2em 0.6em;
+  margin-top: -24px;
 }
 
 .ShopReceipt {}

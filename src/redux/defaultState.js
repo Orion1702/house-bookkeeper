@@ -1,6 +1,9 @@
 const today = new Date();
 const weekBefore = new Date();
-weekBefore.setDate(weekBefore.getDate() - 7);
+weekBefore.setDate(weekBefore.getDate() - 7)
+
+const dateFrom = weekBefore.toISOString().slice(0, 10);
+const dateTo = today.toISOString().slice(0, 10);
 
 export const defaultState = { 
     data: 0, 
@@ -8,7 +11,7 @@ export const defaultState = {
     filteredData: {
         sort: '', 
         query: '', 
-        dateFrom: weekBefore, 
-        dateTo: today.toISOString().slice(0, 10)
+        dateFrom: dateFrom, 
+        dateTo: dateTo,
     }
 }

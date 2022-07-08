@@ -18,12 +18,12 @@ const ShopReceipt = ({day, shopName, checkData}) => {
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls={day+shopName}
                 id={day+shopName}
+                component="div"
                 >
                 <div className="ShopReceipt__title">
-                    <Typography  variant="h6" component="subtitle2">{shopName}</Typography>
-                    <Typography  variant="subtitle2" component="subtitle2">{totalArrayPrice(checkData)}</Typography>
+                    <Typography  variant="h6" component="span">{shopName}</Typography>
+                    <Typography  variant="h6" component="span">{totalArrayPrice(checkData)}</Typography>
                 </div>
-                <Divider></Divider>
             </AccordionSummary>
                 {/* 
                 

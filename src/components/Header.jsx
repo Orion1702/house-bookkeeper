@@ -1,9 +1,7 @@
 import React from "react";
 import {AppBar, Box, Toolbar, Typography, IconButton, TextField, InputAdornment, Container, Stack} from '@mui/material/';
 import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
-
-
+import SpendPlanCounter from "./SpendPlanCounter";
 
 const Header = () => {
     return(
@@ -26,24 +24,10 @@ const Header = () => {
                             </Toolbar>
                             <Typography variant="h6" color="inherit" component="div" sx={{ mr: 2 }}>
                                 Bookkeeper
-                        </Typography>
+                            </Typography>
                         </Stack>
-                        <TextField 
-                            variant="standard"
-                            size="small"
-                            label="Search field"
-                            color="white"
-                            sx={{mb: 1}}
-                            type="search"
-                            InputProps={{
-                                endAdornment: (
-                                    <InputAdornment>
-                                        <SearchIcon />
-                                    </InputAdornment>
-                                ),
-                            }}
-                        />
-                        
+
+                        <SpendPlanCounter />
                     </Stack>
                 </Container>
             </AppBar>

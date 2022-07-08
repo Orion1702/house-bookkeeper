@@ -12,8 +12,8 @@ const DayReceipt = ({day, dayData}) => {
     return (
         <div className="DayReceipt">
             <div className="DayReceipt__title">
-                <Typography variant="h5" component="subtitle2">{day}</Typography>
-                <Typography variant="h5" component="subtitle2">{totalArrayPrice(dayData)}</Typography>
+                <Typography variant="h5" component="div">{day}</Typography>
+                <Typography variant="h5" component="div">{totalArrayPrice(dayData)}</Typography>
             </div>
             
             {shopArray.map((shop, i) => 

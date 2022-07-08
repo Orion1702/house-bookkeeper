@@ -21,7 +21,7 @@ function TabPanel(props) {
       >
         {value === index && (
           <Box sx={{ p: 3 }}>
-            <Typography>{children}</Typography>
+            <Typography variant={"body1"} component={'div'}>{children}</Typography>
           </Box>
         )}
       </div>
@@ -45,7 +45,7 @@ function TabPanel(props) {
 const DataList = ({posts}) => {
     const totalPriceCount = totalArrayPrice(posts);
     const daysArray = [...new Set(posts.map(el => el.date))];
-    console.log(daysArray.sort((a, b) => a.localeCompare(b)));
+    // console.log(daysArray.sort((a, b) => a.localeCompare(b)));
 
     const [value, setValue] = useState(0);
 
@@ -74,12 +74,19 @@ const DataList = ({posts}) => {
                     sx={{ borderRight: 1, borderColor: 'divider',  maxHeight: 480, minWidth: 90 }}
                 >
                     {daysArray.map((day, dayIndex) =>
-                        <Tab label={day} {...a11yProps(dayIndex)} />
+                        <Tab key={'tab'+ dayIndex} label={day} {...a11yProps(dayIndex)} />
                     )}
                 </Tabs>
 
                 {daysArray.map((day, dayIndex) =>
-                    <TabPanel value={value} index={dayIndex} style={{width: '100%'}}>
+                    <TabPanel 
+                        className={'TabPanel_of_DayReceipt'} 
+                        key={'TabPanel' + dayIndex}
+                        value={value} 
+                        index={dayIndex} 
+                        style={{width: '100%'}}
+                        component='div'
+                    >
                         <DayReceipt key={day} day={day} dayData={posts.filter(el => el.date == day)} />
                     </TabPanel>
                 )}

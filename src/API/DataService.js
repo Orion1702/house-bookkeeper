@@ -14,8 +14,8 @@ export default class DataService {
         .then(rep => {
             //Remove additional text and extract only JSON:
             const jsonData = JSON.parse(rep.substring(47).slice(0, -2));
-            console.log(dataConvert(jsonData))
-            console.log(dataConvert(jsonData).length)
+            // console.log(dataConvert(jsonData))
+            // console.log(dataConvert(jsonData).length)
             return(callback(ConverDatatoReactFormat(dataConvert(jsonData))))
             // return(dataConvert(jsonData))
         });

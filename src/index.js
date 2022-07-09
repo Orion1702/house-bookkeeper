@@ -5,10 +5,12 @@ import App from './App';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { LocalizationProvider } from '@mui/lab';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import { createStore } from 'redux'
+import { createStore, applyMiddleware} from 'redux'
+import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
 import { defaultState } from './redux/defaultState';
 import { reducer } from './redux/reducer';
+
 
 const theme = createTheme({
   palette: {
@@ -19,7 +21,10 @@ const theme = createTheme({
 });
 
 
-const store = createStore(reducer)
+const store = createStore(reducer, composeWithDevTools(
+  applyMiddleware()
+  // other store enhancers if any
+));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 

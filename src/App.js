@@ -10,7 +10,6 @@ import Header from './components/Header';
 import { Container } from '@mui/material';
 
 import { useDispatch, useSelector } from 'react-redux';
-// import { FilterContext } from './context';
 
 
 function App() {

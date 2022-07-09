@@ -1,5 +1,7 @@
 import { useMemo } from "react";
 
+
+// Sort for select - doesn't used
 export const useSortedPosts = (posts, sort) => {
     const sortedPosts = useMemo(() => {
 		// console.log('Отработала функция getSortedPosts')
@@ -17,29 +19,19 @@ export const usePostsByDate = (data, dateFrom, dateTo) => {
 	const dateEnd = new Date(dateTo)
 
 	const sortedData = useMemo(() => {
-		// if(dateFrom && dateTo) {
 			return [...data].filter((a) => {
-				// console.log(`a.date -> ${new Date(a.date)} : dateStart = ${dateStart} dateEnd = ${dateEnd}`)
 				const dataDate = new Date(a.date)
 				return (dataDate >= dateStart && dataDate <= dateEnd);
 			})
-		// }
 	}, [data, dateFrom, dateTo])
-	console.log('sortedData')
-	console.log(sortedData)
 	return sortedData;
 }
 
 export const usePosts = (data, sort, query, dateFrom, dateTo) => {
-    /*
-	const sortedPosts = useSortedPosts(posts, sort);
-    const sortedAndSearchedPosts = useMemo ( () => {
-		return sortedPosts
-		// return sortedPosts.filter(post => post.title.toLowerCase().includes(query))
-	}, [query, sortedPosts])
-    
-    return sortedAndSearchedPosts;
-	*/
-	const dataFiltered = usePostsByDate(data, dateFrom, dateTo);
-	return dataFiltered;
+	const sortByDate = usePostsByDate(data, dateFrom, dateTo);
+	const sortByDateAndSearch = useMemo(() => {
+		return sortByDate.filter(el => el.name.toLowerCase().includes(query.toLowerCase()) )
+	}, [query, sortByDate])
+
+	return sortByDateAndSearch;
 }

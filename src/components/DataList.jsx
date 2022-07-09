@@ -45,7 +45,7 @@ function TabPanel(props) {
 const DataList = ({posts}) => {
     const totalPriceCount = totalArrayPrice(posts);
     const daysArray = [...new Set(posts.map(el => el.date))];
-    // console.log(daysArray.sort((a, b) => a.localeCompare(b)));
+    console.log(daysArray.sort((a, b) => b.localeCompare(a)));
 
     const [value, setValue] = useState(0);
 

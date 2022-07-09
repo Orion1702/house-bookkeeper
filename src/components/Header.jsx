@@ -3,7 +3,7 @@ import {AppBar, Box, Toolbar, Typography, IconButton, TextField, InputAdornment,
 import MenuIcon from '@mui/icons-material/Menu';
 import SpendPlanCounter from "./SpendPlanCounter";
 
-const Header = () => {
+const Header = ({filter}) => {
     return(
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">

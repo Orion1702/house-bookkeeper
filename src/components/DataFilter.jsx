@@ -1,11 +1,13 @@
 import { DatePicker } from "@mui/lab";
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useContext, useState } from "react";
 import {Box, TextField, InputAdornment, Stack} from '@mui/material/';
 import SearchIcon from '@mui/icons-material/Search';
 import MyInput from "./UI/input/MyInput";
 import MySelect from "./UI/select/MySelect";
+import { FilterContext } from "../context";
 
 const DataFilter = ({filter, setFilter}) => {
+    // const {filter, setFilter} = useContext(FilterContext)
     // const [dateFrom, setDateFrom] = useState()
     // const [dateTo, setDatrTo] = useState()
     // const handleChangeDateFrom = (e) => {
@@ -35,6 +37,9 @@ const DataFilter = ({filter, setFilter}) => {
                     color="white"
                     sx={{mb: 1, width: '40%',}}
                     type="search"
+                    value={filter.query}
+                    onChange={(e) => setFilter({...filter, query: e.target.value})}
+
                     InputProps={{
                         endAdornment: (
                             <InputAdornment position="end">

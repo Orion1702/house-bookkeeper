@@ -20,13 +20,13 @@ const DataFilter = ({filter, setFilter}) => {
                     label='Date From' 
                     renderInput={(params) => <TextField {...params} />} 
                     value={filter.dateFrom}
-                    onChange={(newValue) => setFilter({...filter, dateFrom: newValue})}
+                    onChange={(newValue) => setFilter({...filter, dateFrom: newValue.toISOString().slice(0, 10)})}
                 />
                 <DatePicker 
                     label='Date To' 
                     renderInput={(params) => <TextField {...params} />} 
                     value={filter.dateTo}
-                    onChange={(newValue) => setFilter({...filter, dateTo: newValue})}
+                    onChange={(newValue) => setFilter({...filter, dateTo: newValue.toISOString().slice(0, 10)})}
                 />
                 <TextField 
                     variant="standard"

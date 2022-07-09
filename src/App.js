@@ -38,8 +38,8 @@ function App() {
   }, []);
 
   useEffect(() => {
-    dispatch({type: 'UPDATE_FILTEREDDATA', payload: sortedAndSearchedPosts})
-  }, [sortedAndSearchedPosts]);
+    dispatch({type: 'UPDATE_FILTEREDDATA', payload: filter})
+  }, [filter.dateFrom, filter.dateTo]);
 
   return (
     <div className="App">

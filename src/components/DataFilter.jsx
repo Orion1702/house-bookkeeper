@@ -1,13 +1,11 @@
 import { DatePicker } from "@mui/lab";
-import React, { Fragment, useContext, useState } from "react";
+import React, { Fragment, useState } from "react";
 import {Box, TextField, InputAdornment, Stack} from '@mui/material/';
 import SearchIcon from '@mui/icons-material/Search';
 import MyInput from "./UI/input/MyInput";
 import MySelect from "./UI/select/MySelect";
-import { FilterContext } from "../context";
 
 const DataFilter = ({filter, setFilter}) => {
-    // const {filter, setFilter} = useContext(FilterContext)
     // const [dateFrom, setDateFrom] = useState()
     // const [dateTo, setDatrTo] = useState()
     // const handleChangeDateFrom = (e) => {

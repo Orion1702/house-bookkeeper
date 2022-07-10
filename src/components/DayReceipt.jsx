@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { totalArrayPrice } from "../hooks/shortFunction";
+import { totalArrayPrice } from "../hooks/utils/shortFunction";
 import ShopReceipt from "./ShopReceipt";
 
 const DayReceipt = ({day, dayData}) => {

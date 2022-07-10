@@ -8,6 +8,8 @@ const dateTo = today.toISOString().slice(0, 10);
 export const defaultState = { 
     data: 0, 
     isLoading: false,
+    moneyPerDay: Number((100 / 7).toFixed(2)),
+    totalSpend : 0,
     filteredData: {
         sort: '', 
         query: '', 

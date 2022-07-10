@@ -6,7 +6,8 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import { totalArrayPrice } from "../hooks/shortFunction";
+import { totalArrayPrice } from "../hooks/utils/shortFunction";
+import { useDispatch } from "react-redux";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -43,9 +44,14 @@ function TabPanel(props) {
 
 
 const DataList = ({posts}) => {
+    const dispatch = useDispatch();
     const totalPriceCount = totalArrayPrice(posts);
     const daysArray = [...new Set(posts.map(el => el.date))];
-    console.log(daysArray.sort((a, b) => b.localeCompare(a)));
+    // console.log(daysArray.sort((a, b) => b.localeCompare(a)));
+
+    useEffect(() => {
+      dispatch({type: 'UPDATE_TOTALSPEND', payload: totalPriceCount})
+    }, [totalPriceCount])
 
     const [value, setValue] = useState(0);
 

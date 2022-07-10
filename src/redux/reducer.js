@@ -10,6 +10,9 @@ export const reducer = (state = defaultState, action) => {
   
       case 'UPDATE_FILTEREDDATA':
         return {...state, filteredData: action.payload}
+
+      case 'UPDATE_TOTALSPEND':
+          return {...state, totalSpend: action.payload}
   
       default:
         return state;

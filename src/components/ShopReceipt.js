@@ -1,6 +1,6 @@
 import { AccordionActions, Box, Divider, Paper, Typography } from "@mui/material";
 import React from "react";
-import { totalArrayPrice } from "../hooks/shortFunction";
+import { totalArrayPrice } from "../hooks/utils/shortFunction";
 
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';

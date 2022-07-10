@@ -14,6 +14,14 @@ code {
     monospace;
 }
 
+.t-small {
+  font-size: 0.7em;
+}
+
+.opacity-05 {
+  opacity: 0.5;
+}
+
 #root{}
 
 .TabPanel_of_DayReceipt {
@@ -39,4 +47,34 @@ code {
   align-items: center;
   justify-content: space-between;
   width: 100%;
+}
+
+/* SpendPlan ------------ */
+.spendPlan {
+  display: flex; 
+  align-items: center;
+}
+
+.spendPlan__day {
+  text-align: right;
+  padding: 0 10px;
+}
+
+.spendPlan__total {
+  padding: 0 10px;
+}
+.spendPlan__total .number {
+  min-width: 50px;
+}
+
+.spendPlan__dif {}
+.spendPlan__dif .number {
+  font-size: 1.5em;
+  padding: 0px 10px;
+}
+.spendPlan__dif .number.green {
+  border-bottom: 2px solid greenyellow;
+}
+.spendPlan__dif .number.red {
+  border-bottom: 2px solid red;
 }

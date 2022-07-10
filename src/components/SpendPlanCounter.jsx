@@ -29,17 +29,28 @@ const SpendPlanCounter = () => {
     }, [defFilterDateStart, defFilterDateEnd])
     
     return(
-        <div className="SpendPlan" style={{display: 'flex', alignItems: 'center'}}>
-            
-            <div className="SpendPlan__day">
-                <div className="SpendPlan__planed">{spendPlan.dayCount} days</div>
-                <div className="SpendPlan__spended">{spendPlan.dayPlan}/day</div>
+        <div className="spendPlan">
+            <div className="spendPlan__day">
+                <div className="spendPlan__planned">
+                    <span className="number">{spendPlan.dayCount}</span> <span className="t-small opacity-05">days</span>
+                </div>
+                <div className="spendPlan__spent">
+                    <span className="number">{spendPlan.dayPlan}</span> <span className="t-small opacity-05">/day</span>
+                </div>
             </div>
-            <div className="SpendPlan__total">
-                <div className="SpendPlan__planed">{spendPlan.totalPlan} - Plan</div>
-                <div className="SpendPlan__spended">{spendPlan.totalSpend} - Spend</div>
+            <div className="spendPlan__total">
+                <div className="spendPlan__spent">
+                    <span className="number">{spendPlan.totalSpend}</span>  <span className="t-small opacity-05">- spent</span>
+                </div>
+                <div className="spendPlan__planed">
+                    <span className="number">{spendPlan.totalPlan}</span>  <span className="t-small opacity-05">- planned</span>
+                </div>
             </div>
-            <div className="SpendPlan__dif">{spendPlan.diffPlanAndSpend}</div>
+            <div className="spendPlan__dif">
+                <span className={spendPlan.diffPlanAndSpend > 0 ? 'number green' : 'number red'}>
+                    {spendPlan.diffPlanAndSpend}
+                </span>
+            </div>
         </div>
     )
 }

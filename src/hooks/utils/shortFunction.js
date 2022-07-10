@@ -14,3 +14,9 @@ export const diffDays = (day1, day2) => {
       return 'Wrong Date format'
    }
 }
+
+export const dateChanger = (date, changer) => {
+   let newDate  = new Date(date)
+   newDate.setDate(newDate.getDate() + changer)
+   return newDate.toISOString().slice(0, 10);
+}

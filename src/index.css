@@ -78,3 +78,23 @@ code {
 .spendPlan__dif .number.red {
   border-bottom: 2px solid red;
 }
+
+
+/* Date picker */
+.date-picker__group {}
+.datePicker__group {
+  display: flex;
+}
+.datePicker__group .MuiInputBase-root {
+  border-radius: 4px 0 0 4px !important;
+}
+.datePicker__group button {
+  max-height: 28px;
+  max-width: 30px;
+}
+.datePicker__group button:nth-child(1) {
+  border-radius: 0 4px 0 0 !important;
+}
+.datePicker__group button:nth-child(2) {
+  border-radius: 0 0 4px 0 !important;
+}

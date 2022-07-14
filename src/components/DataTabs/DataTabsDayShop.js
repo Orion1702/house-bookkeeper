@@ -1,19 +1,12 @@
-import { AccordionActions, Box, Divider, Paper, Typography } from "@mui/material";
 import React from "react";
-import { totalArrayPrice } from "../hooks/utils/shortFunction";
-
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
+import { totalArrayPrice } from "../../hooks/utils/shortFunction";
+import { Accordion, AccordionSummary, AccordionDetails, Typography } from "@mui/material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-const ShopReceipt = ({day, shopName, checkData}) => {
+const DataTabsDayShop = ({day, shopName, checkData}) => {
 
     return (
-
         <Accordion>
-
-        {/* <Box className="ShopReceipt" sx={{mb: 2}}> */}
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls={day+shopName}
@@ -25,13 +18,8 @@ const ShopReceipt = ({day, shopName, checkData}) => {
                     <Typography  variant="h6" component="span">{totalArrayPrice(checkData)}</Typography>
                 </div>
             </AccordionSummary>
-                {/* 
-                
-                */}
-
             
             <AccordionDetails>
-                
                 {checkData.map((el, i) => 
                     <div key={day + shopName + i} style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
                         <div>
@@ -41,10 +29,8 @@ const ShopReceipt = ({day, shopName, checkData}) => {
                     </div>
                 )}
             </AccordionDetails>
-        {/* </Box> */}
         </Accordion>
-
     )
 }
 
-export default ShopReceipt;
+export default DataTabsDayShop;

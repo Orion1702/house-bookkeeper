@@ -1,5 +1,6 @@
 export const totalArrayPrice = (arr) => {
-   return arr.reduce((accum, el) => { return accum + el.finalPrice;}, 0).toFixed(2)
+   let totalPrice = arr.reduce((accum, el) => { return accum + el.finalPrice}, 0).toFixed(2)
+   return totalPrice
 }
 
 export const diffDays = (day1, day2) => {

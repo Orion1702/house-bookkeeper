@@ -3,7 +3,7 @@ import { useFetching } from './hooks/useFetching';
 import DataService from './API/DataService';
 import Loader from './components/UI/loader/loader';
 import './App.css';
-import DataList from './components/DataList';
+import DataContainer from './components/DataContainer';
 import { usePosts } from './hooks/usePosts';
 import DataFilter from './components/DataFilter';
 import Header from './components/Header';
@@ -55,7 +55,7 @@ function App() {
           {isLoading ?
             <div style={{display: 'flex', justifyContent: 'center', marginTop: 50}}><Loader /></div>
             :
-            <DataList posts={sortedAndSearchedPosts}/>
+            <DataContainer posts={sortedAndSearchedPosts}/>
           }
         </Container>
     </div>

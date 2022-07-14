@@ -4,16 +4,9 @@ import {Box, TextField, InputAdornment, Stack, ButtonGroup, Button} from '@mui/m
 import SearchIcon from '@mui/icons-material/Search';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import MyInput from "./UI/input/MyInput";
-import MySelect from "./UI/select/MySelect";
 import { dateChanger } from "../hooks/utils/shortFunction";
 
 const DataFilter = ({filter, setFilter}) => {
-    // const [dateFrom, setDateFrom] = useState()
-    // const [dateTo, setDatrTo] = useState()
-    // const handleChangeDateFrom = (e) => {
-
-    // }
 
     return(
         <Box sm={{p: 2, mb: 2,}}>
@@ -81,22 +74,6 @@ const DataFilter = ({filter, setFilter}) => {
                     }}
                 />
             </Stack>
-
-             {/*
-            <MyInput
-                value={filter.query}
-                onChange={e => setFilter({...filter, query: e.target.value})}
-                placeholder="Поиск..."
-            />
-            <MySelect
-                value={filter.sort}
-                onChange={selectedSort => setFilter({...filter, sort: selectedSort})}
-                defaultValue="Сортировка"
-                options={[
-                    {value: 'title', name: 'По названию'},
-                    {value: 'body', name: 'По описанию'},
-                ]}
-            /> */}
         </Box>
     )
 }

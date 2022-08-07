@@ -6,7 +6,7 @@ const dateFrom = weekBefore.toISOString().slice(0, 10);
 const dateTo = today.toISOString().slice(0, 10);
 
 export const defaultState = { 
-    data: 0, 
+    // data: 0, 
     isLoading: false,
     moneyPerDay: Number((100 / 7).toFixed(2)),
     totalSpend : 0,
@@ -15,5 +15,12 @@ export const defaultState = {
         query: '', 
         dateFrom: dateFrom, 
         dateTo: dateTo,
+    },
+    /*
+    dataParameters: {
+        length: 0,
+        minDate: '',
+        maxDate: '',
     }
+    */
 }

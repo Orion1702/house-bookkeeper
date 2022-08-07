@@ -13,6 +13,9 @@ export const reducer = (state = defaultState, action) => {
 
       case 'UPDATE_TOTALSPEND':
           return {...state, totalSpend: action.payload}
+          
+      case 'PARAMETERS':
+        return {...state, dataParameters: action.payload}
   
       default:
         return state;

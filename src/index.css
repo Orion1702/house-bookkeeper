@@ -98,3 +98,10 @@ code {
 .datePicker__group button:nth-child(2) {
   border-radius: 0 0 4px 0 !important;
 }
+
+
+/* Footer */
+.footer {
+  border-top: 1px solid #ccc;
+  margin-top: 2em;
+}

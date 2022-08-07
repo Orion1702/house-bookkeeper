@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Box from '@mui/material/Box';
-import { DataGrid } from '@mui/x-data-grid';
+import { DataGrid, GridToolbar  } from '@mui/x-data-grid';
 
 const columns = [
-    // { field: 'id', headerName: 'ID', width: 90 },
+    { field: 'id', headerName: 'ID', width: 90 },
     {
         field: 'Name',
         headerName: 'First name',
         width: 200,
+        // minWidth: 150, 
+        // maxWidth: 400,
         editable: true,
     },
     {
@@ -30,13 +32,13 @@ const DataTable = ({posts}) => {
 
     useEffect(() => {
             setRows(posts.map( (el, index) => (
-                {id: index, Name: el.name, Shop: el.shop, Price: el.finalPrice}
+                {id: index, Name: el.name, Shop: el.shop, Price: el.finalPrice.toFixed(2)}
                 )
             ))
     }, [posts])
 
     return(
-        <Box sx={{ height: 640, width: '100%', bgcolor: 'background.default' }}  elevation={4}>
+        <Box sx={{ height: 670, width: '100%', bgcolor: 'background.default' }}  elevation={4}>
             <DataGrid
                 rows={rows}
                 columns={columns}
@@ -49,6 +51,8 @@ const DataTable = ({posts}) => {
 
                 checkboxSelection
                 disableSelectionOnClick
+
+                components={{ Toolbar: GridToolbar }}
             />
         </Box>
     )

@@ -13,11 +13,13 @@ export default class DataService {
         .then(res => res.text())
         .then(rep => {
             //Remove additional text and extract only JSON:
-            const jsonData = JSON.parse(rep.substring(47).slice(0, -2));
-            // console.log(dataConvert(jsonData))
-            // console.log(dataConvert(jsonData).length)
-            return(callback(ConverDatatoReactFormat(dataConvert(jsonData))))
-            // return(dataConvert(jsonData))
-        });
+            const jsonData = JSON.parse(rep.substring(47).slice(0, -2)); // slice columns from table
+            const result = ConverDatatoReactFormat(dataConvert(jsonData));
+
+            console.log('result.length');
+            console.log(result.length);
+            // dispatch({type: 'PARAMETERS', payload: filter})
+            return(callback(result))
+        })
     }
 }

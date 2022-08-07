@@ -21,3 +21,6 @@ export const dateChanger = (date, changer) => {
    newDate.setDate(newDate.getDate() + changer)
    return newDate.toISOString().slice(0, 10);
 }
+
+export const sortByDateAB = (a,b) => { return new Date(a) - new Date(b)}
+export const sortByDateBA = (a,b) => { return new Date(b) - new Date(a)}

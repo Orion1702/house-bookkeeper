@@ -10,31 +10,42 @@ import Header from './components/Header';
 import { Container } from '@mui/material';
 
 import { useDispatch, useSelector } from 'react-redux';
+import Footer from './components/Footer';
+import { dateMinMax } from './hooks/utils/dateMinMax';
 
 
 function App() {
   const [fetchData, isDataLoading, dataError] = useFetching( async () => {
-    await DataService.getFromTable(setData)
+    DataService.getFromTable((res) => {
+      setData(res)
+      setDataLength(res.length)
+      console.log(res)
+      console.log('dateMinMax(res)')
+      console.log(dateMinMax(res))
+    })
   });
 
   //redux
   const dispatch = useDispatch();
-  const reduxData = useSelector(state => state.data);
+  // const reduxData = useSelector(state => state.data);
   const isLoading = useSelector(state => state.isLoading);
+  // const dataParameters = useSelector(state => state.dataParameters);
   const defFilterDateStart = useSelector(state => state.filteredData.dateFrom);
   const defFilterDateEnd = useSelector(state => state.filteredData.dateTo);
 
   const [data, setData] = useState([]);
+  const [dataLength, setDataLength] = useState(0);
+  const [dataRange, setDataRange] = useState({minDate: '', maxDate: ''});
 
-  // const [dataTest, setDataTest] = useState(testData);
-  // const [filter, setFilter] = useState({sort: '', query: '', dateFrom: '2022,7,1', dateTo: '2022,7,8'})
+
   const [filter, setFilter] = useState( {sort: '', query: '', dateFrom: defFilterDateStart, dateTo: defFilterDateEnd})
   const sortedAndSearchedPosts = usePosts(data, filter.sort, filter.query, filter.dateFrom, filter.dateTo)
   
 
   useEffect(() => {
     // console.log('useEffect');
-    fetchData();
+    fetchData()
+
   }, []);
 
   useEffect(() => {
@@ -58,6 +69,8 @@ function App() {
             <DataContainer posts={sortedAndSearchedPosts}/>
           }
         </Container>
+
+        <Footer dataLength={dataLength}/>
     </div>
   );
 }

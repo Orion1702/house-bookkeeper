@@ -22,6 +22,6 @@ export const ConverDatatoReactFormat = (data) => {
         result.push(el)
     });
 
-    console.log('ConverDatatoReactFormat')
+    // console.log('ConverDatatoReactFormat')
     return result;
 }

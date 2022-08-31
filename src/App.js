@@ -17,11 +17,11 @@ import { dateMinMax } from './hooks/utils/dateMinMax';
 function App() {
   const [fetchData, isDataLoading, dataError] = useFetching( async () => {
     DataService.getFromTable((res) => {
-      setData(res)
-      setDataLength(res.length)
-      console.log(res)
-      console.log('dateMinMax(res)')
-      console.log(dateMinMax(res))
+      setData(res);
+      setDataLength(res.length);
+      console.log(res);
+      console.log('dateMinMax(res)');
+      setArrayDateMinMaxh(dateMinMax(res));
     })
   });
 
@@ -35,6 +35,7 @@ function App() {
 
   const [data, setData] = useState([]);
   const [dataLength, setDataLength] = useState(0);
+  const [arrayDateMinMax, setArrayDateMinMaxh] = useState([]);
   const [dataRange, setDataRange] = useState({minDate: '', maxDate: ''});
 
 
@@ -70,7 +71,7 @@ function App() {
           }
         </Container>
 
-        <Footer dataLength={dataLength}/>
+        <Footer dataLength={dataLength} dateMinMax={arrayDateMinMax}/>
     </div>
   );
 }

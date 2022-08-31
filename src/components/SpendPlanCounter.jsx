@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { diffDays } from "../hooks/utils/shortFunction";
+import { dateDifference } from "../hooks/utils/dateDifference";
 
 const SpendPlanCounter = () => {
     const defFilterDateStart = useSelector(state => state.filteredData.dateFrom);
@@ -16,7 +16,7 @@ const SpendPlanCounter = () => {
     })
 
     useEffect(() => {
-        let diffbetwenDays = Number(diffDays(defFilterDateStart, defFilterDateEnd));
+        let diffbetwenDays = Number(dateDifference(defFilterDateStart, defFilterDateEnd));
         let totalPlanCount = Number(diffbetwenDays * moneyPerDay).toFixed(2);
         let diffPlanSpend = (totalPlanCount - totalSpend).toFixed(2);
         setSpendPlan({...spendPlan, 
